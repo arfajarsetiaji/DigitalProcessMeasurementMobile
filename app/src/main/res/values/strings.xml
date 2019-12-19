@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Digital Process Measurement Mobile</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Ar Fajar Setiaji</string>
+    <string name="nav_header_subtitle">arfajar@indonesian-aerospace.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_data">Data</string>
+    <string name="menu_report">Report</string>
+    <string name="menu_change_password">Change Password</string>
+    <string name="menu_login">Login</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="label_jid_no">JID No.</string>
+    <string name="label_part_no">Part No.</string>
+    <string name="label_qty">Qty.</string>
+    <string name="label_program">Program</string>
+    <string name="label_work_center">Work Center</string>
+    <string name="label_date">Date</string>
+    <string name="label_package_source">Package Source</string>
+    <string name="label_package_status">Package</string>
+    <string name="label_if_incomplete">If Incomplete</string>
+    <string name="label_status">Status</string>
+    <string name="label_descrepancy">Descrepancy</string>
+    <string name="label_remarks_sqg">Remarks SQG</string>
+    <string name="label_remarks_fpy">Remarks FPY</string>
+
+    <string name="content_jid_no"> </string>
+    <string name="content_part_no">N/A</string>
+    <string name="content_qty">00</string>
+    <string name="content_program">N/A</string>
+    <string name="content_work_center">N/A</string>
+    <string name="content_date">01–01–2001</string>
+    <string name="content_package_source">-</string>
+    <string name="content_package_status">Complete / Incomplete</string>
+    <string name="content_if_incomplete">-</string>
+    <string name="content_status">Pass / No Pass</string>
+    <string name="content_descrepancy">-</string>
+    <string name="content_remarks_sqg">-</string>
+    <string name="content_remarks_fpy">-</string>
+
+    <string name="label_report_benefit_fpy">Benefit FPY</string>
+    <string name="label_report_benefit_pr">Benefit PR</string>
+    <string name="label_report_benefit_wp">Benefit WP</string>
+
+    <string name="label_report_work_center">Work Center</string>
+    <string name="option_report_work_center_sheet_metal">Sheet Metal</string>
+    <string name="option_report_work_center_machining">Machining</string>
+    <string name="option_report_work_center_ndt">NDT</string>
+
+    <string name="label_report_month">Month</string>
+    <string name="label_report_rate">Rate</string>
+    <string name="label_report_index">Index</string>
+    <string name="label_report_benefit">Benefit</string>
+</resources>
