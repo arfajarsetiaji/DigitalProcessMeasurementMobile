@@ -1,8 +1,6 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -13,8 +11,10 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_main.*
+import android.view.View
+import android.widget.ImageView
+import coil.api.load
+import coil.transform.CircleCropTransformation
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_change_password, R.id.nav_logout), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val headerView: View = navView.getHeaderView(0)
+        val imageView: ImageView = headerView.findViewById(R.id.imageView)
+        imageView.load(R.drawable.n219) { crossfade(true).transformations(CircleCropTransformation()) }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
