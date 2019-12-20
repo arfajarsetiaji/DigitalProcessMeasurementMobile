@@ -82,7 +82,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_jid_no" />
 
             <View
-                android:id="@+id/divider2"
+                android:id="@+id/divider_1"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginStart="16dp"
@@ -102,7 +102,7 @@
                 android:text="@string/label_program"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_1" />
 
             <TextView
                 android:id="@+id/tv_content_program"
@@ -112,7 +112,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/content_program"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_program"
-                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_1" />
 
             <TextView
                 android:id="@+id/tv_label_work_center"
@@ -123,7 +123,7 @@
                 android:text="@string/label_work_center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/tv_content_work_center"
-                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_1" />
 
             <TextView
                 android:id="@+id/tv_content_work_center"
@@ -133,7 +133,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/content_work_center"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_1" />
 
             <TextView
                 android:id="@+id/tv_label_date"
@@ -157,7 +157,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tv_label_package_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -168,17 +168,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_program" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tv_content_package_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/content_package_source"
-                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toEndOf="@+id/tv_label_package_source"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_program" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_content_package_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -188,14 +188,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_program" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/tv_label_package_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
                 android:text="@string/label_package_status"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/textView4"
+                app:layout_constraintEnd_toStartOf="@+id/tv_content_package_status"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_program" />
 
             <View
@@ -206,7 +206,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="?android:attr/listDivider"
-                app:layout_constraintBottom_toTopOf="@+id/divider2"
+                app:layout_constraintBottom_toTopOf="@+id/divider_1"
                 app:layout_constraintStart_toEndOf="@+id/tv_content_part_no"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_jid_no" />
 
@@ -218,13 +218,13 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="?android:attr/listDivider"
-                app:layout_constraintBottom_toTopOf="@+id/divider2"
+                app:layout_constraintBottom_toTopOf="@+id/divider_1"
                 app:layout_constraintStart_toEndOf="@+id/tv_content_qty"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_jid_no"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/tv_label_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -235,7 +235,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_jid_no" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/tv_content_status"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -243,11 +243,11 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/content_status"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintStart_toEndOf="@+id/tv_label_status"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_jid_no" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/tv_label_if_incomplete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -255,10 +255,10 @@
                 android:text="@string/label_if_incomplete"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_package_source" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/tv_content_if_incomplete"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -266,11 +266,11 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/content_if_incomplete"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView9"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintStart_toEndOf="@+id/tv_label_if_incomplete"
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_package_source" />
 
             <View
-                android:id="@+id/divider4"
+                android:id="@+id/divider_2"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginStart="16dp"
@@ -279,10 +279,10 @@
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_if_incomplete" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/tv_label_descrepancy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -294,10 +294,10 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider4" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_2" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/tv_content_descrepancy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -307,10 +307,10 @@
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_descrepancy" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/tv_label_remarks_sqg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -321,10 +321,10 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_content_descrepancy" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/tv_content_remarks_sqg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -334,10 +334,10 @@
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_remarks_sqg" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/tv_label_remarks_fpy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -348,10 +348,10 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_content_remarks_sqg" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/tv_content_remarks_fpy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -363,7 +363,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_remarks_fpy" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
