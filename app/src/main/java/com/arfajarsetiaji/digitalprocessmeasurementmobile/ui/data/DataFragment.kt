@@ -28,8 +28,8 @@ class DataFragment : Fragment() {
         srlData = root.findViewById(R.id.srl_data)
         rvData = root.findViewById(R.id.rv_data)
         rvData.layoutManager = LinearLayoutManager(act)
-        val dataEntryItem: DataEntryItem = DataEntryItem("12345678", "12345678", 0, "N / A", "N / A", "N / A",
-            "-", "Complete  / Incomplete", "-", "Pass / No Pass", "-", "-", "-")
+        val dataEntryItem: DataEntryItem = DataEntryItem("12345678", "1234567890", 99, "N / A", "N / A", "01-01-2001",
+            "-", "Incomplete", "-", "Pass / No Pass", "-", "-", "-")
         dataEntryItems.add(0,dataEntryItem)
         rvData.adapter = DataEntryAdapter(dataEntryItems, act)
         return root
