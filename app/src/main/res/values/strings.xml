@@ -14,19 +14,19 @@
     <string name="menu_login">Login</string>
     <string name="menu_logout">Logout</string>
 
-    <string name="label_jid_no">JID No.:</string>
-    <string name="label_part_no">Part No.:</string>
-    <string name="label_qty">Qty.:</string>
-    <string name="label_program">Program:</string>
-    <string name="label_work_center">Work Center:</string>
-    <string name="label_date">Date:</string>
-    <string name="label_package_source">Package Source:</string>
-    <string name="label_package_status">Package:</string>
-    <string name="label_if_incomplete">If Incomplete:</string>
-    <string name="label_status">Status:</string>
-    <string name="label_descrepancy">Descrepancy:</string>
-    <string name="label_remarks_sqg">Remarks SQG:</string>
-    <string name="label_remarks_fpy">Remarks FPY:</string>
+    <string name="label_jid_no">JID No.</string>
+    <string name="label_part_no">Part No.</string>
+    <string name="label_qty">Qty.</string>
+    <string name="label_program">Program</string>
+    <string name="label_work_center">Work Center</string>
+    <string name="label_date">Date</string>
+    <string name="label_package_source">Package Source</string>
+    <string name="label_package_status">Package</string>
+    <string name="label_if_incomplete">If Incomplete</string>
+    <string name="label_status">Status</string>
+    <string name="label_descrepancy">Descrepancy</string>
+    <string name="label_remarks_sqg">Remarks SQG</string>
+    <string name="label_remarks_fpy">Remarks FPY</string>
 
     <string name="content_jid_no">N/A </string>
     <string name="content_part_no">N/A</string>
