@@ -22,9 +22,10 @@ buildscript {
     ext.androidx_cardview_version = '1.0.0'
     ext.androidx_pallette_version = '1.0.0'
 
-    ext.glide_version = '4.9.0'
     ext.fan_version = '1.0.2'
-    ext.circleimageview_version = '2.1.0'
+    ext.coil_version = '0.8.0'
+    ext.layoutmanagergroup_version = '1e6f4f96eb'
+    ext.mpandroidchart_version = 'v3.1.0'
 
     ext.junit_junit_version = '4.12'
     ext.androidx_junit_version = '1.1.1'

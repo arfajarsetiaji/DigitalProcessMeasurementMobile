@@ -56,19 +56,16 @@ dependencies {
 
     implementation "androidx.navigation:navigation-ui-ktx:$androidx_navigation_version"
 
-    implementation "com.github.bumptech.glide:glide:$glide_version"
     implementation "com.amitshekhar.android:android-networking:$fan_version"
-    implementation "de.hdodenhof:circleimageview:$circleimageview_version"
-    implementation "io.coil-kt:coil:0.8.0"
-    implementation "com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb"
+    implementation "io.coil-kt:coil:$coil_version"
+    implementation "com.github.DingMouRen:LayoutManagerGroup:$layoutmanagergroup_version"
+    implementation "com.github.PhilJay:MPAndroidChart:$mpandroidchart_version"
 
     kapt "androidx.lifecycle:lifecycle-compiler:$androidx_lifecycle_compiler_version"
-    kapt "com.github.bumptech.glide:compiler:$glide_version"
     kapt "android.arch.persistence.room:compiler:$androidx_room_version"
 
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$androidx_lifecycle_compiler_version"
     annotationProcessor "androidx.room:room-compiler:$androidx_room_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
     testImplementation "junit:junit:$junit_junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"

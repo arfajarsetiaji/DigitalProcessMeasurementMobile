@@ -16,8 +16,6 @@ class ChangePasswordFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         changePasswordViewModel = ViewModelProviders.of(this).get(ChangePasswordViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_change_password, container, false)
-        val textView: TextView = root.findViewById(R.id.text_share)
-        changePasswordViewModel.text.observe(this, Observer {textView.text = it })
         return root
     }
 }
