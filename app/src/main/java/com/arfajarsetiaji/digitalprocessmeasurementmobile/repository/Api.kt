@@ -1,12 +1,11 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.repository
 
-import com.arfajarsetiaji.android.moviecatalogue.api.database.DataEntry
 import retrofit2.Call
 import retrofit2.http.GET
 
 
 interface Api {
-    @get:GET("data_sqg_fpy")
+    @get:GET("data_sqg_fpy.json")
     val heroes: Call<List<DataEntry?>?>?
 
     companion object {

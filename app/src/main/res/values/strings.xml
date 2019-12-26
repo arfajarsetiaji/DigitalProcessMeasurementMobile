@@ -63,4 +63,7 @@
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="hint_log_in">Log In</string>
+
+    <string name="api_data_url">https://arfajarsetiaji.github.io/DigitalProcessMeasurementMobile/data_fpy_sqg.json</string>
+    <string name="api_data_base_url">https://arfajarsetiaji.github.io/DigitalProcessMeasurementMobile/data_fpy_sqg.json</string>
 </resources>
