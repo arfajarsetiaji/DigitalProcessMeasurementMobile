@@ -9,7 +9,7 @@ class DataEntry(
     val package_source: String,
     val package_status: String,
     val package_if_incomplete: String,
-    val qty: String,
+    val qty: Int,
     val status: String,
     val descrepancy: String,
     val remarks_sqg: String,
