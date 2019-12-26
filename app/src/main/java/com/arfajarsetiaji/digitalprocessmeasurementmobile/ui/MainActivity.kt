@@ -1,4 +1,4 @@
-package com.arfajarsetiaji.digitalprocessmeasurementmobile
+package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui
 
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -15,6 +15,7 @@ import android.view.View
 import android.widget.ImageView
 import coil.api.load
 import coil.transform.CircleCropTransformation
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -30,8 +31,12 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_dashboard, R.id.nav_data, R.id.nav_report,
-                R.id.nav_change_password, R.id.nav_logout), drawerLayout)
+            R.id.nav_dashboard,
+            R.id.nav_data,
+            R.id.nav_report,
+            R.id.nav_change_password,
+            R.id.nav_logout
+        ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
