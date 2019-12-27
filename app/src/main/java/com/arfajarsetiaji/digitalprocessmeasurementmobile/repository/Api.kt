@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface Api {
     @get:GET("data_sqg_fpy.json")
-    val heroes: Call<List<DataEntry?>?>?
+    val heroes: Call<List<DataEntryItem?>?>?
 
     companion object {
         const val BASE_URL = "https://arfajarsetiaji.github.io/digitalmeasurementmobile"

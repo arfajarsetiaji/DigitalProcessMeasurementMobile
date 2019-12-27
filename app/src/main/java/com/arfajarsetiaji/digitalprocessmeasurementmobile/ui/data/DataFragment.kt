@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryAdapter
-import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntry
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryItem
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -18,7 +18,7 @@ import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.onRefresh
 
 class DataFragment : Fragment(), DataView {
-    private var dataEntries: MutableList<DataEntry> = mutableListOf()
+    private var dataEntryItems: MutableList<DataEntryItem> = mutableListOf()
     private var dataPresenter: DataPresenter = DataPresenter(this)
     private lateinit var srlData: SwipeRefreshLayout
     private lateinit var rvData : RecyclerView
@@ -28,12 +28,9 @@ class DataFragment : Fragment(), DataView {
         srlData = root.findViewById(R.id.srl_data)
         rvData = root.findViewById(R.id.rv_data)
         srlData.onRefresh { GlobalScope.launch(Dispatchers.Main) { dataPresenter.getDataEntryList() } }
-        /*val dataEntry = DataEntry(1, 1234567890,"1234567890", "N/A", "N/A", "01-01-2001","N/A","N/A", "N/A",
-            10, "No Pass", "-", "-", "-")*/
-        //dataEntries.add(0,dataEntry)
         rvData.layoutManager = LinearLayoutManager(act)
-        rvData.adapter = DataEntryAdapter(dataEntries, act)
-        if (dataEntries.isEmpty()){ GlobalScope.launch(Dispatchers.Main) {dataPresenter.getDataEntryList() } }
+        rvData.adapter = DataEntryAdapter(dataEntryItems, act)
+        if (dataEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) {dataPresenter.getDataEntryList() } }
         return root
     }
 
@@ -45,9 +42,9 @@ class DataFragment : Fragment(), DataView {
         srlData.isRefreshing = false
     }
 
-    override fun showDataEntryList(dataEntries: List<DataEntry>) {
-        this.dataEntries.clear()
-        this.dataEntries.addAll(dataEntries)
+    override fun showDataEntryList(dataEntryItems: List<DataEntryItem>) {
+        this.dataEntryItems.clear()
+        this.dataEntryItems.addAll(dataEntryItems)
         rvData.adapter?.notifyDataSetChanged()
     }
 }

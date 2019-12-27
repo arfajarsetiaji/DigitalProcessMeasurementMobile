@@ -24,6 +24,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/label_jid_no"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/content_jid_no"
+                android:text="@string/content_empty_dash"
+                android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_jid_no"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/content_part_no"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_part_no"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_jid_no" />
 
@@ -76,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/content_qty"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_qty"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_jid_no" />
 
@@ -109,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/content_program"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_program"
                 app:layout_constraintTop_toBottomOf="@+id/divider_1" />
 
@@ -130,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/content_work_center"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider_1" />
 
@@ -151,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/content_date"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -172,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/content_package_source"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_package_source"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_program" />
 
@@ -182,7 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/content_package_status"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_program" />
 
@@ -240,7 +242,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/content_status"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_status"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_jid_no" />
@@ -263,7 +265,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/content_if_incomplete"
+                android:text="@string/content_empty_dash"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_if_incomplete"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_package_source" />
@@ -302,7 +304,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/content_descrepancy"
+                android:text="@string/content_empty_dash"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -329,7 +331,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/content_remarks_sqg"
+                android:text="@string/content_empty_dash"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -357,7 +359,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="@string/content_remarks_fpy"
+                android:text="@string/content_empty_dash"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
