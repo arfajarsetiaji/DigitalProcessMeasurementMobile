@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
+import org.jetbrains.anko.textColor
 import org.w3c.dom.Text
 
 class DataEntryAdapter(private val dataEntryItems: MutableList<DataEntryItem>,
@@ -35,19 +36,29 @@ class DataEntryAdapter(private val dataEntryItems: MutableList<DataEntryItem>,
 
         @SuppressLint("DefaultLocale")
         fun bindItem(dataEntryItem: DataEntryItem){
-            if (!dataEntryItem.jid_no.isNullOrEmpty() && dataEntryItem.jid_no != "-")tvContentJidNo.text = dataEntryItem.jid_no.capitalize()
-            if (!dataEntryItem.status.isNullOrEmpty() && dataEntryItem.status != "-")tvContentStatus.text = dataEntryItem.status.toUpperCase()
-            if (!dataEntryItem.date.isNullOrEmpty() && dataEntryItem.date != "-")tvContentDate.text = dataEntryItem.date.substring(0,9).capitalize()
-            if (!dataEntryItem.part_no.isNullOrEmpty() && dataEntryItem.part_no != "-")tvContentPartNo.text = dataEntryItem.part_no.capitalize()
-            if (!dataEntryItem.qty.isNullOrEmpty() && dataEntryItem.qty != "-")tvContentQty.text = dataEntryItem.qty.capitalize()
-            if (!dataEntryItem.program.isNullOrEmpty() && dataEntryItem.program != "-")tvContentProgram.text = dataEntryItem.program.capitalize()
-            if (!dataEntryItem.work_center.isNullOrEmpty() && dataEntryItem.work_center != "-")tvContentWorkCenter.text = dataEntryItem.work_center.capitalize()
-            if (!dataEntryItem.package_source.isNullOrEmpty() && dataEntryItem.package_source != "-")tvContentPackageSource.text = dataEntryItem.package_source.capitalize()
-            if (!dataEntryItem.package_status.isNullOrEmpty() && dataEntryItem.package_status != "-")tvContentPackageStatus.text = dataEntryItem.package_status.capitalize()
-            if (!dataEntryItem.package_if_incomplete.isNullOrEmpty() && dataEntryItem.package_if_incomplete != "-")tvContentIfIncomplete.text = dataEntryItem.package_if_incomplete.capitalize()
-            if (!dataEntryItem.descrepancy.isNullOrEmpty() && dataEntryItem.descrepancy != "-")tvContentDescrepancy.text = dataEntryItem.descrepancy.capitalize()
-            if (!dataEntryItem.remarks_sqg.isNullOrEmpty() && dataEntryItem.remarks_sqg != "-")tvContentRemarksSqg.text = dataEntryItem.remarks_sqg.capitalize()
-            if (!dataEntryItem.remarks_fpy.isNullOrEmpty() && dataEntryItem.remarks_fpy != "-")tvContentRemarksFpy.text = dataEntryItem.remarks_fpy.capitalize()
+            if (!dataEntryItem.jid_no.isNullOrEmpty() && dataEntryItem.jid_no != "-")tvContentJidNo.text = dataEntryItem.jid_no.trim().capitalize()
+            if (!dataEntryItem.status.isNullOrEmpty() && dataEntryItem.status != "-"){
+                tvContentStatus.text = dataEntryItem.status.trim().toUpperCase()
+                if (tvContentStatus.text == "NOPASS"){
+                    tvContentStatus.text = "NO PASS"
+                    tvContentStatus.textColor = R.color.red500
+                }
+                if (tvContentStatus.text == "PASS"){
+                    tvContentStatus.text = "PASS"
+                    tvContentStatus.textColor = R.color.green500
+                }
+            }
+            if (!dataEntryItem.date.isNullOrEmpty() && dataEntryItem.date != "-")tvContentDate.text = dataEntryItem.date.substring(0,9).trim().capitalize()
+            if (!dataEntryItem.part_no.isNullOrEmpty() && dataEntryItem.part_no != "-")tvContentPartNo.text = dataEntryItem.part_no.trim().capitalize()
+            if (!dataEntryItem.qty.isNullOrEmpty() && dataEntryItem.qty != "-")tvContentQty.text = dataEntryItem.qty.trim().capitalize()
+            if (!dataEntryItem.program.isNullOrEmpty() && dataEntryItem.program != "-")tvContentProgram.text = dataEntryItem.program.trim().capitalize()
+            if (!dataEntryItem.work_center.isNullOrEmpty() && dataEntryItem.work_center != "-")tvContentWorkCenter.text = dataEntryItem.work_center.trim().capitalize()
+            if (!dataEntryItem.package_source.isNullOrEmpty() && dataEntryItem.package_source != "-")tvContentPackageSource.text = dataEntryItem.package_source.trim().capitalize()
+            if (!dataEntryItem.package_status.isNullOrEmpty() && dataEntryItem.package_status != "-")tvContentPackageStatus.text = dataEntryItem.package_status.trim().capitalize()
+            if (!dataEntryItem.package_if_incomplete.isNullOrEmpty() && dataEntryItem.package_if_incomplete != "-")tvContentIfIncomplete.text = dataEntryItem.package_if_incomplete.trim().capitalize()
+            if (!dataEntryItem.descrepancy.isNullOrEmpty() && dataEntryItem.descrepancy != "-")tvContentDescrepancy.text = dataEntryItem.descrepancy.trim().capitalize()
+            if (!dataEntryItem.remarks_sqg.isNullOrEmpty() && dataEntryItem.remarks_sqg != "-")tvContentRemarksSqg.text = dataEntryItem.remarks_sqg.trim().capitalize()
+            if (!dataEntryItem.remarks_fpy.isNullOrEmpty() && dataEntryItem.remarks_fpy != "-")tvContentRemarksFpy.text = dataEntryItem.remarks_fpy.trim().capitalize()
 
             /*itemView.onClick {
                 val intent = Intent(context, MovieDetailActivity::class.java)
