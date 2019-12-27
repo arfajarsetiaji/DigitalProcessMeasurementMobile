@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        // Ini comment
         val headerView: View = navView.getHeaderView(0)
         val imageView: ImageView = headerView.findViewById(R.id.imageView)
         imageView.load(R.drawable.n219) { crossfade(true).transformations(CircleCropTransformation()) }
