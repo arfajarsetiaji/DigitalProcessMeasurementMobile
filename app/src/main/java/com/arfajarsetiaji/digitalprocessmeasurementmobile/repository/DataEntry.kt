@@ -6,7 +6,9 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-
+data class DataEntryObject{
+    List<DataEntry>
+}
 
 @Parcelize
 @Entity(tableName = "Data Entries")
