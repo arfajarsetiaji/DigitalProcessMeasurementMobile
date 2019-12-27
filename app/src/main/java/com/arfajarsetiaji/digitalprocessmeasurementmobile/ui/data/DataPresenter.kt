@@ -29,7 +29,8 @@ class DataPresenter(private val dataView: DataView) {
             AndroidNetworking.get(DigitalProcessMeasurementMobile.instance.resources.getString(R.string.api_data_url))
                 .setPriority(Priority.LOW).build().getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject?) {
-                        val dataEntries: List<DataEntry> = gson.fromJson(response.toString(), object : TypeToken<List<DataEntry?>?>() {}.type)
+                        val dataEntries: DataEntry = gson.fromJson(response.toString(), DataEntry::class.java)
+                        //val videos: List<DataEntry> = gson.fromJson(response.toString(), object : TypeToken<List<DataEntry?>?>() {}.type)
                         Log.d("TAG", dataEntries.toString())
                         //dataView.showDataEntryList(dataEntries as List<DataEntry>)
                         dataView.hideRefreshing()
