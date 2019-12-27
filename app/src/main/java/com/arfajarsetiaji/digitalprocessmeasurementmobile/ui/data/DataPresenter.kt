@@ -1,5 +1,6 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.data
 
+import android.provider.MediaStore.Video
 import android.util.Log
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
@@ -10,9 +11,11 @@ import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntry
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
+
 
 @Suppress("DeferredResultUnused", "DEPRECATION", "UNCHECKED_CAST")
 class DataPresenter(private val dataView: DataView) {
@@ -23,10 +26,10 @@ class DataPresenter(private val dataView: DataView) {
         dataView.showRefreshing()
         return withContext(Dispatchers.IO) {
             gson = gsonBuilder.create()
-            AndroidNetworking.get(DigitalProcessMeasurementMobile.instance.resources.getString(R.string.api_data_base_url))
+            AndroidNetworking.get(DigitalProcessMeasurementMobile.instance.resources.getString(R.string.api_data_url))
                 .setPriority(Priority.LOW).build().getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject?) {
-                        val dataEntries: DataEntry = gson.fromJson(response.toString(), DataEntry::class.java)
+                        val dataEntries: List<DataEntry> = gson.fromJson(response.toString(), object : TypeToken<List<DataEntry?>?>() {}.type)
                         Log.d("TAG", dataEntries.toString())
                         //dataView.showDataEntryList(dataEntries as List<DataEntry>)
                         dataView.hideRefreshing()

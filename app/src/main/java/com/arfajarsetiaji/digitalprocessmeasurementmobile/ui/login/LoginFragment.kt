@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
+
 
 class LoginFragment : Fragment() {
     private lateinit var loginViewModel: LoginViewModel
@@ -17,5 +17,15 @@ class LoginFragment : Fragment() {
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_login, container, false)
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 }
