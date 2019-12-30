@@ -1,21 +1,22 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.View
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import android.view.Menu
-import android.view.View
-import android.widget.ImageView
 import coil.api.load
 import coil.transform.CircleCropTransformation
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
+import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -33,12 +34,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_dashboard, R.id.nav_data, R.id.nav_report, R.id.nav_change_password, R.id.nav_logout), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        imageView.load(R.drawable.n219){crossfade(true).transformations(CircleCropTransformation())}
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
-        return true
+        imageView.load(R.drawable.n219){ crossfade(true).transformations(CircleCropTransformation()) }
     }
 
     override fun onSupportNavigateUp(): Boolean {

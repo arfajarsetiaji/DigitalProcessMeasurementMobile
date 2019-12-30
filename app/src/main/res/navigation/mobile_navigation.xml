@@ -28,5 +28,9 @@
         android:id="@+id/nav_logout"
         android:name="com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.login.LoginFragment"
         android:label="@string/menu_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_nav_logout_to_nav_dashboard"
+            app:destination="@id/nav_dashboard" />
+    </fragment>
 </navigation>

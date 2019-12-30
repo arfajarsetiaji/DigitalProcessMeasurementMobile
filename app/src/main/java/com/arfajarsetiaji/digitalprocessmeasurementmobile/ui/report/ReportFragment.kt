@@ -11,13 +11,9 @@ import androidx.lifecycle.ViewModelProviders
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 
 class ReportFragment : Fragment() {
-    private lateinit var reportViewModel: ReportViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        reportViewModel = ViewModelProviders.of(this).get(ReportViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_report, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
-        reportViewModel.text.observe(this, Observer {textView.text = it })
         return root
     }
 }

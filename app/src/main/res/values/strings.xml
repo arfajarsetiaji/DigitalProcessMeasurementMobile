@@ -53,4 +53,6 @@
 
     <string name="api_data_url">https://arfajarsetiaji.github.io/DigitalProcessMeasurementMobile/data_fpy_sqg.json</string>
     <string name="api_data_base_url">https://arfajarsetiaji.github.io/DigitalProcessMeasurementMobile/data_fpy_sqg.json</string>
+    <string name="search">Search</string>
+    <string name="sort">Sort</string>
 </resources>

@@ -1,27 +1,32 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.data
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryAdapter
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryItem
-import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.onRefresh
 
+
 class DataFragment : Fragment(), DataView {
     private var dataEntryItems: MutableList<DataEntryItem> = mutableListOf()
     private var dataPresenter: DataPresenter = DataPresenter(this)
     private lateinit var srlData: SwipeRefreshLayout
     private lateinit var rvData : RecyclerView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_data, container, false)
@@ -30,8 +35,26 @@ class DataFragment : Fragment(), DataView {
         srlData.onRefresh { GlobalScope.launch(Dispatchers.Main) { dataPresenter.getDataEntryList() } }
         rvData.layoutManager = LinearLayoutManager(act)
         rvData.adapter = DataEntryAdapter(dataEntryItems, act)
-        if (dataEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) {dataPresenter.getDataEntryList() } }
+        if (dataEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) { dataPresenter.getDataEntryList() } }
         return root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        activity?.menuInflater?.inflate(R.menu.fragment_data, menu)
+        val mSearch = menu.findItem(R.id.action_search)
+        val mSearchView: SearchView = mSearch.actionView as SearchView
+        mSearchView.queryHint = "Search"
+        mSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                //adapter.getFilter().filter(newText)
+                return true
+            }
+        })
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun showRefreshing() {
