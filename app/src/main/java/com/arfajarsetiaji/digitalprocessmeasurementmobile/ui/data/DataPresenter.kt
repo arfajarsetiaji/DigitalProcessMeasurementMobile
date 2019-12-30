@@ -26,10 +26,10 @@ class DataPresenter(private val dataView: DataView) {
             AndroidNetworking.get(DigitalProcessMeasurementMobile.instance.resources.getString(R.string.api_data_url))
                 .setPriority(Priority.LOW).build().getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject?) {
-                        val dataEntries: DataEntries? = gson.fromJson(response.toString(), DataEntries::class.java)
+                        val dataEntries = gson.fromJson(response.toString(), DataEntries::class.java)
                         val dataEntryItems = dataEntries?.dataEntryItems
                         dataEntryItems?.sortByDescending { it?.date }
-                        val dataEntryList: List<DataEntryItem> = dataEntryItems as List<DataEntryItem>
+                        val dataEntryList = dataEntryItems as List<DataEntryItem>
                         dataView.showDataEntryList(dataEntryList)
                         dataView.hideRefreshing()
                     }

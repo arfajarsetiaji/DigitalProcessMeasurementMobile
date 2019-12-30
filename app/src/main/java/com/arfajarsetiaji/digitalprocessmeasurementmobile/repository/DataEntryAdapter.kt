@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
-import org.jetbrains.anko.textColor
-import org.w3c.dom.Text
 
 class DataEntryAdapter(private val dataEntryItems: MutableList<DataEntryItem>,
                        private val context: Context): RecyclerView.Adapter<DataEntryAdapter.ViewHolder>(){
@@ -43,7 +41,6 @@ class DataEntryAdapter(private val dataEntryItems: MutableList<DataEntryItem>,
                     tvContentStatus.setTextColor(context.resources.getColor(R.color.red500))
                 }
                 if (tvContentStatus.text == "PASS"){
-                    tvContentStatus.text = "PASS"
                     tvContentStatus.setTextColor(context.resources.getColor(R.color.green500))
                 }
             }
@@ -58,12 +55,6 @@ class DataEntryAdapter(private val dataEntryItems: MutableList<DataEntryItem>,
             if (!dataEntryItem.descrepancy.isNullOrEmpty() && dataEntryItem.descrepancy != "-")tvContentDescrepancy.text = dataEntryItem.descrepancy.trim().capitalize()
             if (!dataEntryItem.remarks_sqg.isNullOrEmpty() && dataEntryItem.remarks_sqg != "-")tvContentRemarksSqg.text = dataEntryItem.remarks_sqg.trim().capitalize()
             if (!dataEntryItem.remarks_fpy.isNullOrEmpty() && dataEntryItem.remarks_fpy != "-")tvContentRemarksFpy.text = dataEntryItem.remarks_fpy.trim().capitalize()
-
-            /*itemView.onClick {
-                val intent = Intent(context, MovieDetailActivity::class.java)
-                intent.putExtra("MOVIE_ITEM", movieItem)
-                context.startActivity(intent)
-            }*/
         }
     }
 }
