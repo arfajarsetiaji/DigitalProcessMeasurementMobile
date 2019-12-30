@@ -46,11 +46,12 @@ class DataFragment : Fragment(), DataView {
         mSearchView.queryHint = "Search"
         mSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
+                GlobalScope.launch(Dispatchers.Main) { query?.let { dataPresenter.queryAndShowDataEntryListFromServer(it) } }
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if (dataEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() } }
+                GlobalScope.launch(Dispatchers.Main) { newText?.let { dataPresenter.queryAndShowDataEntryListFromServer(it) } }
                 return true
             }
         })

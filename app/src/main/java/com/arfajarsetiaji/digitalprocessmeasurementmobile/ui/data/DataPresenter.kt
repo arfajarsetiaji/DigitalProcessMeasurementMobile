@@ -24,7 +24,7 @@ class DataPresenter(private val dataView: DataView) {
         return withContext(Dispatchers.IO) {
             gson = gsonBuilder.create()
             AndroidNetworking.get(DigitalProcessMeasurementMobile.instance.resources.getString(R.string.api_data_url))
-                .setPriority(Priority.LOW).build().getAsJSONObject(object : JSONObjectRequestListener {
+                .setPriority(Priority.HIGH).build().getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject?) {
                         val dataEntries = gson.fromJson(response.toString(), DataEntries::class.java)
                         val dataEntryItems = dataEntries?.dataEntryItems
@@ -40,10 +40,27 @@ class DataPresenter(private val dataView: DataView) {
         }
     }
 
-    suspend fun queryAndShowDataEntryList(dataEntryItems: MutableList<DataEntryItem>) {
+    suspend fun queryAndShowDataEntryListFromServer(text: String) {
         dataView.showRefreshing()
         return withContext(Dispatchers.IO) {
-            dataEntryItems.sortByDescending { it.date }
+            gson = gsonBuilder.create()
+            AndroidNetworking.get(DigitalProcessMeasurementMobile.instance.resources.getString(R.string.api_data_url))
+                .setPriority(Priority.HIGH).build().getAsJSONObject(object : JSONObjectRequestListener {
+                    override fun onResponse(response: JSONObject?) {
+                        val dataEntries = gson.fromJson(response.toString(), DataEntries::class.java)
+                        val dataEntryItems = dataEntries.dataEntryItems
+                        if (dataEntryItems != null) {
+                            dataEntryItems.retainAll { it?.jid_no!!.contains(text)}
+                            dataEntryItems.sortByDescending { it?.date }
+                        }
+                        val dataEntryList = dataEntryItems as List<DataEntryItem>
+                        dataView.showDataEntryList(dataEntryList)
+                        dataView.hideRefreshing()
+                    }
+                    override fun onError(anError: ANError?) {
+                        try { } catch (e: Exception) { }
+                    }
+                })
         }
     }
 }
