@@ -50,24 +50,16 @@ class DataFragment : Fragment(), DataView {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if (dataEntryItems.isEmpty()){
-                    GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() }
-                } else {
-                    dataPresenter
-                }
+                if (dataEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() } }
                 return true
             }
         })
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    override fun showRefreshing() {
-        srlData.isRefreshing = true
-    }
+    override fun showRefreshing() { srlData.isRefreshing = true }
 
-    override fun hideRefreshing() {
-        srlData.isRefreshing = false
-    }
+    override fun hideRefreshing() { srlData.isRefreshing = false }
 
     override fun showDataEntryList(dataEntryItems: List<DataEntryItem>) {
         this.dataEntryItems.clear()
