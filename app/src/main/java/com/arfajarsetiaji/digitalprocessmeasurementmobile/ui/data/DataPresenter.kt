@@ -1,6 +1,5 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.data
 
-import android.util.Log
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -18,9 +17,9 @@ import org.json.JSONObject
 @Suppress("DeferredResultUnused", "DEPRECATION", "UNCHECKED_CAST")
 class DataPresenter(private val dataView: DataView) {
     var gson = Gson()
-    var gsonBuilder = GsonBuilder()
+    private var gsonBuilder = GsonBuilder()
 
-    suspend fun getDataEntryList() {
+    suspend fun getAndShowDataEntryListFromServer() {
         dataView.showRefreshing()
         return withContext(Dispatchers.IO) {
             gson = gsonBuilder.create()
@@ -28,15 +27,23 @@ class DataPresenter(private val dataView: DataView) {
                 .setPriority(Priority.LOW).build().getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject?) {
                         val dataEntries: DataEntries? = gson.fromJson(response.toString(), DataEntries::class.java)
-                        val dataEntryItems: List<DataEntryItem> = dataEntries?.dataEntryItems as List<DataEntryItem>
-                        Log.d("TAG", dataEntries.toString())
-                        dataView.showDataEntryList(dataEntryItems)
+                        val dataEntryItems = dataEntries?.dataEntryItems
+                        dataEntryItems?.sortByDescending { it?.date }
+                        val dataEntryList: List<DataEntryItem> = dataEntryItems as List<DataEntryItem>
+                        dataView.showDataEntryList(dataEntryList)
                         dataView.hideRefreshing()
                     }
                     override fun onError(anError: ANError?) {
                         try { } catch (e: Exception) { }
                     }
                 })
+        }
+    }
+
+    suspend fun queryAndShowDataEntryList(dataEntryItems: MutableList<DataEntryItem>) {
+        dataView.showRefreshing()
+        return withContext(Dispatchers.IO) {
+            dataEntryItems.sortByDescending { it.date }
         }
     }
 }

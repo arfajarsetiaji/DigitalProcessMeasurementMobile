@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class DataEntries(@SerializedName("Sheet1") val dataEntryItems: List<DataEntryItem?>?): Parcelable
+data class DataEntries(@SerializedName("Sheet1") val dataEntryItems: MutableList<DataEntryItem?>?): Parcelable
 
 @Parcelize
 @Entity(tableName = "Data Entries")

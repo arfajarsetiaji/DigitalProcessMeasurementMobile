@@ -40,11 +40,11 @@ class DataEntryAdapter(private val dataEntryItems: MutableList<DataEntryItem>,
                 tvContentStatus.text = dataEntryItem.status.trim().toUpperCase()
                 if (tvContentStatus.text == "NOPASS"){
                     tvContentStatus.text = "NO PASS"
-                    tvContentStatus.textColor = R.color.red500
+                    tvContentStatus.setTextColor(context.resources.getColor(R.color.red500))
                 }
                 if (tvContentStatus.text == "PASS"){
                     tvContentStatus.text = "PASS"
-                    tvContentStatus.textColor = R.color.green500
+                    tvContentStatus.setTextColor(context.resources.getColor(R.color.green500))
                 }
             }
             if (!dataEntryItem.date.isNullOrEmpty() && dataEntryItem.date != "-")tvContentDate.text = dataEntryItem.date.substring(0,9).trim().capitalize()

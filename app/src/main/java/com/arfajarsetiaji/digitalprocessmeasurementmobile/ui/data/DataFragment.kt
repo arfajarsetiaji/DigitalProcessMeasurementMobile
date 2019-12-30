@@ -32,10 +32,10 @@ class DataFragment : Fragment(), DataView {
         val root = inflater.inflate(R.layout.fragment_data, container, false)
         srlData = root.findViewById(R.id.srl_data)
         rvData = root.findViewById(R.id.rv_data)
-        srlData.onRefresh { GlobalScope.launch(Dispatchers.Main) { dataPresenter.getDataEntryList() } }
+        srlData.onRefresh { GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() } }
         rvData.layoutManager = LinearLayoutManager(act)
         rvData.adapter = DataEntryAdapter(dataEntryItems, act)
-        if (dataEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) { dataPresenter.getDataEntryList() } }
+        if (dataEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() } }
         return root
     }
 
@@ -50,7 +50,11 @@ class DataFragment : Fragment(), DataView {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                //adapter.getFilter().filter(newText)
+                if (dataEntryItems.isEmpty()){
+                    GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() }
+                } else {
+                    dataPresenter
+                }
                 return true
             }
         })
