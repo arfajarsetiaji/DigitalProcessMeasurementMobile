@@ -63,4 +63,8 @@ class DataPresenter(private val dataView: DataView) {
                 })
         }
     }
+
+    private fun filterDataEntryItemsByWorkCenter(dataEntryItems: MutableList<DataEntryItem>): MutableList<DataEntryItem> {
+        return dataEntryItems
+    }
 }
