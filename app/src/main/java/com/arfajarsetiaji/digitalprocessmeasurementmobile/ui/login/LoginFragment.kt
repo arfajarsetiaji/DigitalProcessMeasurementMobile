@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 
-
 class LoginFragment : Fragment() {
     private lateinit var loginViewModel: LoginViewModel
 

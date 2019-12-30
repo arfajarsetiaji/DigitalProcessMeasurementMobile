@@ -15,7 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 
-
 @Suppress("DeferredResultUnused", "DEPRECATION", "UNCHECKED_CAST")
 class DataPresenter(private val dataView: DataView) {
     var gson = Gson()

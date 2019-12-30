@@ -24,26 +24,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_dashboard,
-            R.id.nav_data,
-            R.id.nav_report,
-            R.id.nav_change_password,
-            R.id.nav_logout
-        ), drawerLayout)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-
-        // Ini comment
         val headerView: View = navView.getHeaderView(0)
         val imageView: ImageView = headerView.findViewById(R.id.imageView)
-        imageView.load(R.drawable.n219) { crossfade(true).transformations(CircleCropTransformation()) }
+        setSupportActionBar(toolbar)
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_dashboard, R.id.nav_data, R.id.nav_report, R.id.nav_change_password, R.id.nav_logout), drawerLayout)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+        imageView.load(R.drawable.n219){crossfade(true).transformations(CircleCropTransformation())}
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
