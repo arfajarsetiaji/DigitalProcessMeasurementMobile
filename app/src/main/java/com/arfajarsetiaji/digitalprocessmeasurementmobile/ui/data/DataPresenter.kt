@@ -50,7 +50,7 @@ class DataPresenter(private val dataView: DataView) {
                         val dataEntries = gson.fromJson(response.toString(), DataEntries::class.java)
                         val dataEntryItems = dataEntries.dataEntryItems
                         if (dataEntryItems != null) {
-                            dataEntryItems.retainAll { it?.jid_no!!.contains(text)}
+                            dataEntryItems.retainAll { it.toString().contains(text)}
                             dataEntryItems.sortByDescending { it?.date }
                         }
                         val dataEntryList = dataEntryItems as List<DataEntryItem>
