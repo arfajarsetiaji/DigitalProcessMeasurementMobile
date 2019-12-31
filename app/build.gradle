@@ -63,6 +63,8 @@ dependencies {
     implementation "com.github.DingMouRen:LayoutManagerGroup:$layoutmanagergroup_version"
     implementation "com.github.PhilJay:MPAndroidChart:$mpandroidchart_version"
     implementation "com.alespero:expandable-cardview:$expandablecardview_version"
+    implementation "com.ajts.androidmads.SQLite2Excel:library:1.0.4"
+    implementation "com.muddzdev:quickshot:1.0.0"
 
     kapt "androidx.lifecycle:lifecycle-compiler:$androidx_lifecycle_compiler_version"
     kapt "android.arch.persistence.room:compiler:$androidx_room_version"
