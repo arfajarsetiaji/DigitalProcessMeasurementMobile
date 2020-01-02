@@ -13,12 +13,14 @@
         android:weightSum="4">
 
         <TextView
-            android:id="@+id/tv_content_month"
+            android:id="@+id/tv_label_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
+            android:text="@string/label_report_month"
             android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,12 +32,14 @@
             android:background="?android:attr/listDivider" />
 
         <TextView
-            android:id="@+id/tv_content_rate"
+            android:id="@+id/tv_label_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="center" />
+            android:text="@string/label_report_rate"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider_2"
@@ -45,12 +49,14 @@
             android:background="?android:attr/listDivider" />
 
         <TextView
-            android:id="@+id/tv_content_index"
+            android:id="@+id/tv_label_index"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="center" />
+            android:text="@string/label_report_index"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider_3"
@@ -60,18 +66,20 @@
             android:background="?android:attr/listDivider" />
 
         <TextView
-            android:id="@+id/tv_content_benefit"
+            android:id="@+id/tv_label_benefit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="center" />
+            android:text="@string/label_report_benefit"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <View
         android:id="@+id/divider_0"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="4dp"
         android:background="?android:attr/listDivider" />
 
 
