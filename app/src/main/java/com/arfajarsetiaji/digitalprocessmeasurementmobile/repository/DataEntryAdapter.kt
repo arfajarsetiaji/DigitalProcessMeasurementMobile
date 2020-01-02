@@ -13,7 +13,9 @@ class DataEntryAdapter(private val dataEntryItems: MutableList<DataEntryItem>,
                        private val context: Context): RecyclerView.Adapter<DataEntryAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_data_entry, parent, false), context)
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) { holder.bindItem(dataEntryItems[position]) }
+
     override fun getItemCount(): Int = dataEntryItems.size
 
     class ViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView){

@@ -1,7 +1,6 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +18,6 @@ import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.preferences.AppPreferences
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.login.DrawerLocker
 import com.google.android.material.navigation.NavigationView
-
 
 class MainActivity : AppCompatActivity(), DrawerLocker {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -55,14 +53,8 @@ class MainActivity : AppCompatActivity(), DrawerLocker {
 
     override fun onBackPressed() {
         finishActivityIfCurrentIsNavLogin()
-        Log.d("TAG", AppPreferences.userLoggedIn.toString())
-        Log.d("TAG", AppPreferences.userWorkCenter.toString())
         super.onBackPressed()
     }
 
-    private fun finishActivityIfCurrentIsNavLogin() {
-        if (navController.currentDestination?.id  == R.id.nav_login){
-            finish()
-        }
-    }
+    private fun finishActivityIfCurrentIsNavLogin() { if (navController.currentDestination?.id  == R.id.nav_login){ finish() } }
 }

@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.onRefresh
 
-
 class DataFragment : Fragment(), DataView {
     private var dataEntryItems: MutableList<DataEntryItem> = mutableListOf()
     private var dataPresenter: DataPresenter = DataPresenter(this)
