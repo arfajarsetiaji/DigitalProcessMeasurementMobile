@@ -1,5 +1,6 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.data
 
+import android.util.Log
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -54,6 +55,7 @@ class DataPresenter(private val dataView: DataView) {
                             dataEntryItems.sortByDescending { it?.date }
                         }
                         val dataEntryList = dataEntryItems as List<DataEntryItem>
+                        Log.d("TAG", dataEntryList.toString())
                         dataView.showDataEntryList(dataEntryList)
                         dataView.hideRefreshing()
                     }
@@ -64,7 +66,8 @@ class DataPresenter(private val dataView: DataView) {
         }
     }
 
-    private fun filterDataEntryItemsByWorkCenter(dataEntryItems: MutableList<DataEntryItem>): MutableList<DataEntryItem> {
+    private fun filterDataEntryItemsByWorkCenter(dataEntryItems: MutableList<DataEntryItem?>?): MutableList<DataEntryItem?>? {
+        Log.d("TAG", dataEntryItems.toString())
         return dataEntryItems
     }
 }

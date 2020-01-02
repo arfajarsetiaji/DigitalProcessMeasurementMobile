@@ -1,6 +1,7 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity(), DrawerLocker {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         imageView.load(R.drawable.n219){ crossfade(true).transformations(CircleCropTransformation()) }
-        if (!AppPreferences.userLoggedIn){ navController.navigate(R.id.nav_login) } else { navController.navigate(R.id.nav_dashboard) }
+        if (!AppPreferences.userLoggedIn){ navController.navigate(R.id.nav_login) }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -54,6 +55,8 @@ class MainActivity : AppCompatActivity(), DrawerLocker {
 
     override fun onBackPressed() {
         finishActivityIfCurrentIsNavLogin()
+        Log.d("TAG", AppPreferences.userLoggedIn.toString())
+        Log.d("TAG", AppPreferences.userWorkCenter.toString())
         super.onBackPressed()
     }
 

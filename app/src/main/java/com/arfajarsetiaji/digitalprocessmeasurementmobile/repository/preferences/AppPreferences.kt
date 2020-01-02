@@ -7,9 +7,9 @@ object AppPreferences {
     private const val NAME = "Digital_Pocess_Measurement_Mobile"
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
-    private val IS_FIRST_RUN_PREF = Pair("is_first_run", false)
-    private val IS_USER_LOGGED_IN_PREF = Pair("is_user_logged_in", false)
-    private val USER_WORK_CENTER_PREF = Pair("user_work_center", "general")
+    private var IS_NOT_FIRST_RUN_PREF = Pair("is_first_run", false)
+    private var IS_USER_LOGGED_IN_PREF = Pair("is_user_logged_in", false)
+    private var USER_WORK_CENTER_PREF = Pair("user_work_center", "general")
 
     fun init(context: Context) { preferences = context.getSharedPreferences(NAME, MODE)}
 
@@ -19,9 +19,9 @@ object AppPreferences {
         editor.apply()
     }
 
-    var firstRun: Boolean
-        get() = preferences.getBoolean(IS_FIRST_RUN_PREF.first, IS_FIRST_RUN_PREF.second)
-        set(value) = preferences.edit { it.putBoolean(IS_FIRST_RUN_PREF.first, value)
+    var notFirstRun: Boolean
+        get() = preferences.getBoolean(IS_NOT_FIRST_RUN_PREF.first, IS_NOT_FIRST_RUN_PREF.second)
+        set(value) = preferences.edit { it.putBoolean(IS_NOT_FIRST_RUN_PREF.first, value)
         }
 
     var userLoggedIn: Boolean

@@ -1,6 +1,8 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.login
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,7 @@ import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.preferences.AppPreferences
 import com.google.android.material.textfield.TextInputEditText
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.toast
 
 
 class LoginFragment : Fragment() {
@@ -27,36 +30,56 @@ class LoginFragment : Fragment() {
                 "sheetmetal" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "sheetmetal"
+                        AppPreferences.userLoggedIn = true
+                        AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
                     }
                 "machining" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "machining"
+                        AppPreferences.userLoggedIn = true
+                        AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
                 }
                 "surface" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "surface"
+                        AppPreferences.userLoggedIn = true
+                        AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
                 }
                 "painting" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "painting"
+                        AppPreferences.userLoggedIn = true
+                        AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
                 }
                 "penetrantline" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "penetrantline"
+                        AppPreferences.userLoggedIn = true
+                        AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
                 }
                 "finaldpm" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "finaldpm"
+                        AppPreferences.userLoggedIn = true
+                        AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
                 }
             }
+            Log.d("TAG", AppPreferences.userLoggedIn.toString())
+            Log.d("TAG", AppPreferences.userWorkCenter.toString())
         }
         return root
+    }
+
+    override fun onAttach(context: Context) {
+        AppPreferences.userLoggedIn = false
+        if (AppPreferences.notFirstRun) { toast(getString(R.string.message_logout)) }
+        super.onAttach(context)
     }
 
     override fun onResume() {
