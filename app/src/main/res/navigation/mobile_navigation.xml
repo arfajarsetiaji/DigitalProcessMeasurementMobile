@@ -8,7 +8,21 @@
         android:id="@+id/nav_dashboard"
         android:name="com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.dashboard.DashboardFragment"
         android:label="@string/menu_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_nav_dashboard_to_nav_data"
+            app:popUpTo="@id/nav_data" />
+        <action
+            android:id="@+id/action_nav_dashboard_to_nav_report"
+            app:popUpTo="@id/nav_report" />
+        <action
+            android:id="@+id/action_nav_dashboard_to_nav_logout"
+            app:popUpTo="@id/nav_login"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_nav_dashboard_to_nav_change_password"
+            app:popUpTo="@id/nav_change_password" />
+    </fragment>
     <fragment
         android:id="@+id/nav_data"
         android:name="com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.data.DataFragment"
@@ -25,12 +39,12 @@
         android:label="@string/menu_change_password"
         tools:layout="@layout/fragment_change_password" />
     <fragment
-        android:id="@+id/nav_logout"
+        android:id="@+id/nav_login"
         android:name="com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.login.LoginFragment"
         android:label="@string/menu_login"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_nav_logout_to_nav_dashboard"
-            app:popUpTo="@id/nav_dashboard" />
+            app:popUpTo="@id/mobile_navigation" />
     </fragment>
 </navigation>

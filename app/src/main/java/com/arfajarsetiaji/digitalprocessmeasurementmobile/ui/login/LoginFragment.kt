@@ -8,17 +8,18 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
 
-class LoginFragment : Fragment() {
+class LoginFragment : Fragment(), OnBackPressed {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_login, container, false)
         (activity as DrawerLocker?)!!.setDrawerLocked(true)
         val btnLogin: Button = root.findViewById(R.id.btn_login)
-        btnLogin.onClick { Navigation.findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard) }
+        btnLogin.onClick {findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard) }
         return root
     }
 
@@ -35,5 +36,10 @@ class LoginFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
+
+    override fun onBackPressed() {
+        //activity?.supportFragmentManager?.popBackStack()
+        activity?.finish()
     }
 }
