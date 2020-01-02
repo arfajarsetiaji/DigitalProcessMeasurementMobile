@@ -17,8 +17,7 @@
             app:popUpTo="@id/nav_report" />
         <action
             android:id="@+id/action_nav_dashboard_to_nav_logout"
-            app:popUpTo="@id/nav_login"
-            app:popUpToInclusive="true"/>
+            app:popUpTo="@id/nav_login" />
         <action
             android:id="@+id/action_nav_dashboard_to_nav_change_password"
             app:popUpTo="@id/nav_change_password" />
@@ -45,6 +44,7 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_nav_logout_to_nav_dashboard"
-            app:popUpTo="@id/mobile_navigation" />
+            app:popUpTo="@id/nav_dashboard"
+            app:launchSingleTop="true" />
     </fragment>
 </navigation>
