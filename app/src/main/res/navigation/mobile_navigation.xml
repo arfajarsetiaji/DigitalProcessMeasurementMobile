@@ -31,6 +31,6 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_nav_logout_to_nav_dashboard"
-            app:destination="@id/nav_dashboard" />
+            app:popUpTo="@id/nav_dashboard" />
     </fragment>
 </navigation>

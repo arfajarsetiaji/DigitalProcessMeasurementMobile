@@ -22,6 +22,7 @@ class DataFragment : Fragment(), DataView {
     private var dataPresenter: DataPresenter = DataPresenter(this)
     private lateinit var srlData: SwipeRefreshLayout
     private lateinit var rvData : RecyclerView
+    private lateinit var svData: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,19 +33,24 @@ class DataFragment : Fragment(), DataView {
         val root = inflater.inflate(R.layout.fragment_data, container, false)
         srlData = root.findViewById(R.id.srl_data)
         rvData = root.findViewById(R.id.rv_data)
-        srlData.onRefresh { GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() } }
         rvData.layoutManager = LinearLayoutManager(act)
         rvData.adapter = DataEntryAdapter(dataEntryItems, act)
+        srlData.onRefresh {
+            if (!svData.isIconified){
+                GlobalScope.launch(Dispatchers.Main) { dataPresenter.queryAndShowDataEntryListFromServer(svData.query.toString()) }
+            } else {
+                GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() } }
+        }
         if (dataEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) { dataPresenter.getAndShowDataEntryListFromServer() } }
         return root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         activity?.menuInflater?.inflate(R.menu.fragment_data, menu)
-        val mSearch = menu.findItem(R.id.action_search)
-        val mSearchView: SearchView = mSearch.actionView as SearchView
-        mSearchView.queryHint = "Search"
-        mSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        val svDataItem = menu.findItem(R.id.action_search)
+        svData = svDataItem.actionView as SearchView
+        svData.queryHint = "Search"
+        svData.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 GlobalScope.launch(Dispatchers.Main) { query?.let { dataPresenter.queryAndShowDataEntryListFromServer(it) } }
                 return false
