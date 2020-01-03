@@ -9,6 +9,7 @@ import com.arfajarsetiaji.digitalprocessmeasurementmobile.DigitalProcessMeasurem
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntries
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryItem
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.preferences.AppPreferences
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
@@ -29,7 +30,12 @@ class DataPresenter(private val dataView: DataView) {
                     override fun onResponse(response: JSONObject?) {
                         val dataEntries = gson.fromJson(response.toString(), DataEntries::class.java)
                         val dataEntryItems = dataEntries?.dataEntryItems
-                        dataEntryItems?.sortByDescending { it?.date }
+                        if (dataEntryItems != null) {
+                            Log.d("TAG", dataEntryItems.toString())
+                            Log.d("TAG", AppPreferences.userWorkCenter.toString())
+                            dataEntryItems.retainAll { it.toString().contains(AppPreferences.userWorkCenter.toString())}
+                            dataEntryItems.sortByDescending { it?.date }
+                        }
                         val dataEntryList = dataEntryItems as List<DataEntryItem>
                         dataView.showDataEntryList(dataEntryList)
                         dataView.hideRefreshing()
@@ -51,6 +57,9 @@ class DataPresenter(private val dataView: DataView) {
                         val dataEntries = gson.fromJson(response.toString(), DataEntries::class.java)
                         val dataEntryItems = dataEntries.dataEntryItems
                         if (dataEntryItems != null) {
+                            Log.d("TAG", dataEntryItems.toString())
+                            Log.d("TAG", AppPreferences.userWorkCenter.toString())
+                            dataEntryItems.retainAll { it.toString().contains(AppPreferences.userWorkCenter.toString())}
                             dataEntryItems.retainAll { it.toString().contains(text)}
                             dataEntryItems.sortByDescending { it?.date }
                         }
@@ -64,10 +73,5 @@ class DataPresenter(private val dataView: DataView) {
                     }
                 })
         }
-    }
-
-    private fun filterDataEntryItemsByWorkCenter(dataEntryItems: MutableList<DataEntryItem?>?): MutableList<DataEntryItem?>? {
-        Log.d("TAG", dataEntryItems.toString())
-        return dataEntryItems
     }
 }

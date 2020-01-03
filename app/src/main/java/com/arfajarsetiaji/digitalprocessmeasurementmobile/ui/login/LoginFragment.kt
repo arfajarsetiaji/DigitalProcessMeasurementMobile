@@ -55,6 +55,13 @@ class LoginFragment : Fragment() {
                         AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
                 }
+                "hardnessline" ->
+                    if (tietPassword.text.toString() == tietUsername.text.toString()) {
+                        AppPreferences.userWorkCenter = "hardnessline"
+                        AppPreferences.userLoggedIn = true
+                        AppPreferences.notFirstRun = true
+                        findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
+                    }
                 "penetrantline" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "penetrantline"
