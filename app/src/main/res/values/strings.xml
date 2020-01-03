@@ -9,7 +9,7 @@
 
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_data">Data</string>
-    <string name="menu_report">Report</string>
+    <string name="menu_benefit_report">Benefit Report</string>
     <string name="menu_change_password">Change Password</string>
     <string name="menu_login">Login</string>
     <string name="menu_logout">Logout</string>
@@ -29,9 +29,15 @@
     <string name="label_remarks_fpy">Remarks FPY</string>
     <string name="content_empty_dash">-</string>
 
-    <string name="label_report_benefit_fpy">Benefit FPY</string>
-    <string name="label_report_benefit_pr">Benefit PR</string>
-    <string name="label_report_benefit_wp">Benefit WP</string>
+    <string name="menu_report_benefit_fpy_sheetmetal">FPY - Sheet Metal</string>
+    <string name="menu_report_benefit_fpy_machining">FPY - Machining</string>
+    <string name="menu_report_benefit_fpy_ndt">FPY - NDT</string>
+    <string name="menu_report_benefit_pr_sheetmetal">PR - Sheet Metal</string>
+    <string name="menu_report_benefit_pr_machining">PR - Machining</string>
+    <string name="menu_report_benefit_pr_ndt">PR - NDT</string>
+    <string name="menu_report_benefit_wp_sheetmetal">WP - Sheet Metal</string>
+    <string name="menu_report_benefit_wp_machining">WP - Machining</string>
+    <string name="menu_report_benefit_wp_ndt">WP - NDT</string>
 
     <string name="label_report_work_center">Work Center</string>
     <string name="option_report_work_center_sheet_metal">Sheet Metal</string>
