@@ -1,4 +1,4 @@
-package com.arfajarsetiaji.digitalprocessmeasurementmobile.repository
+package com.arfajarsetiaji.digitalprocessmeasurementmobile.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,11 +8,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryItem
 
 class DataEntryAdapter(private val dataEntryItems: MutableList<DataEntryItem>,
                        private val context: Context): RecyclerView.Adapter<DataEntryAdapter.ViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_data_entry, parent, false), context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.item_data_entry, parent, false),
+            context
+        )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) { holder.bindItem(dataEntryItems[position]) }
 

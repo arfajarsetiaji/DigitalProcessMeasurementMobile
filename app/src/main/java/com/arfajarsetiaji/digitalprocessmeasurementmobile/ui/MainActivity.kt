@@ -15,7 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import coil.api.load
 import coil.transform.CircleCropTransformation
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
-import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.preferences.AppPreferences
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.AppPreferences
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.login.DrawerLocker
 import com.google.android.material.navigation.NavigationView
 

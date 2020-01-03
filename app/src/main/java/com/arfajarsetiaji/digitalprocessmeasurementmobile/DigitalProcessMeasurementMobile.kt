@@ -2,7 +2,7 @@ package com.arfajarsetiaji.digitalprocessmeasurementmobile
 
 import android.app.Application
 import com.androidnetworking.AndroidNetworking
-import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.preferences.AppPreferences
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.AppPreferences
 
 class DigitalProcessMeasurementMobile : Application() {
     companion object { lateinit var instance: DigitalProcessMeasurementMobile private set }

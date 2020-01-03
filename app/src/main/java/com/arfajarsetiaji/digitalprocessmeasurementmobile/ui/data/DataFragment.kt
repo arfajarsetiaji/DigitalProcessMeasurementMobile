@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
-import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryAdapter
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.adapter.DataEntryAdapter
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -33,7 +33,11 @@ class DataFragment : Fragment(), DataView {
         srlData = root.findViewById(R.id.srl_data)
         rvData = root.findViewById(R.id.rv_data)
         rvData.layoutManager = LinearLayoutManager(act)
-        rvData.adapter = DataEntryAdapter(dataEntryItems, act)
+        rvData.adapter =
+            DataEntryAdapter(
+                dataEntryItems,
+                act
+            )
         srlData.onRefresh {
             if (!svData.isIconified){
                 GlobalScope.launch(Dispatchers.Main) { dataPresenter.queryAndShowDataEntryListFromServer(svData.query.toString()) }
