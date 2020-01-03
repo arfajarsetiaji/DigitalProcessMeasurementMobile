@@ -1,9 +1,9 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.report
 
-import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.DataEntryItem
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.ReportEntryItem
 
-interface DataView{
+interface ReportView{
     fun showRefreshing()
     fun hideRefreshing()
-    fun showDataEntryList(dataEntryItems: List<DataEntryItem>)
+    fun showDataEntryList(reportEntryItems: List<ReportEntryItem>)
 }

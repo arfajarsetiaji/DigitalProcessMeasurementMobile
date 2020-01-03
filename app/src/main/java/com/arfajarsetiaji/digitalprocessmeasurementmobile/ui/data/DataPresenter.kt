@@ -37,9 +37,7 @@ class DataPresenter(private val dataView: DataView) {
                         dataView.showDataEntryList(dataEntryList)
                         dataView.hideRefreshing()
                     }
-                    override fun onError(anError: ANError?) {
-                        try { } catch (e: Exception) { }
-                    }
+                    override fun onError(anError: ANError?) { try { } catch (e: Exception) { } }
                 })
         }
     }
@@ -62,9 +60,7 @@ class DataPresenter(private val dataView: DataView) {
                         dataView.showDataEntryList(dataEntryList)
                         dataView.hideRefreshing()
                     }
-                    override fun onError(anError: ANError?) {
-                        try { } catch (e: Exception) { }
-                    }
+                    override fun onError(anError: ANError?) { try { } catch (e: Exception) { } }
                 })
         }
     }
