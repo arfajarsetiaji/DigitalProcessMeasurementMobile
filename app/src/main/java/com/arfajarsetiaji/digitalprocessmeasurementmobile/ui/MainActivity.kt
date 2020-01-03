@@ -56,5 +56,10 @@ class MainActivity : AppCompatActivity(), DrawerLocker {
         super.onBackPressed()
     }
 
+    override fun onDestroy() {
+        AppPreferences.selectedBenefitReportMenu = "0"
+        super.onDestroy()
+    }
+
     private fun finishActivityIfCurrentIsNavLogin() { if (navController.currentDestination?.id  == R.id.nav_login){ finish() } }
 }

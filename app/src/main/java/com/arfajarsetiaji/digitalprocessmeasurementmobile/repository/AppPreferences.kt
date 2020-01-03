@@ -37,6 +37,6 @@ object AppPreferences {
 
     var selectedBenefitReportMenu: String?
         get() = sharedPreferences.getString(SELECTED_BENEFIT_REPORT_MENU_PREF.first, SELECTED_BENEFIT_REPORT_MENU_PREF.second)
-        set(value) = sharedPreferences.edit { it.putString(USER_WORK_CENTER_PREF.first, value)
+        set(value) = sharedPreferences.edit { it.putString(SELECTED_BENEFIT_REPORT_MENU_PREF.first, value)
         }
 }

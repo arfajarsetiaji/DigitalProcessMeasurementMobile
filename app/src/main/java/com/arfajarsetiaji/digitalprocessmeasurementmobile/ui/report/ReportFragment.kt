@@ -1,6 +1,7 @@
 package com.arfajarsetiaji.digitalprocessmeasurementmobile.ui.report
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.R
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.adapter.ReportEntryAdapter
+import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.AppPreferences
 import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.ReportEntryItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -43,12 +45,13 @@ class ReportFragment : Fragment(), ReportView {
 
             }
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                when(position) {
-                    0 ->
-                }
+                Log.d("POSITION", position.toString())
+                AppPreferences.selectedBenefitReportMenu = position.toString()
+                Log.d("POSITIO", AppPreferences.selectedBenefitReportMenu.toString())
+                GlobalScope.launch(Dispatchers.Main) { reportPresenter.getAndShowReportEntryListFromServer() }
             }
-
         }
+        AppPreferences.selectedBenefitReportMenu?.toInt()?.let { spReport.setSelection(it) }
         srlReport.onRefresh { GlobalScope.launch(Dispatchers.Main) { reportPresenter.getAndShowReportEntryListFromServer() } }
         if (reportEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) { reportPresenter.getAndShowReportEntryListFromServer() } }
         return root
