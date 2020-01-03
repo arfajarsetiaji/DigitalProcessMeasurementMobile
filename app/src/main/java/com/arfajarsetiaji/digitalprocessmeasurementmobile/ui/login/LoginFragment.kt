@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -82,6 +83,11 @@ class LoginFragment : Fragment() {
                         AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
                     }
+            }
+            val view: View? = activity?.currentFocus
+            if (view != null) {
+                val imm: InputMethodManager? = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm?.hideSoftInputFromWindow(view.windowToken, 0)
             }
         }
         return root
