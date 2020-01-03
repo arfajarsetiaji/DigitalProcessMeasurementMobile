@@ -39,21 +39,21 @@ class LoginFragment : Fragment() {
                         AppPreferences.userLoggedIn = true
                         AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
-                }
+                    }
                 "surface" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "surface"
                         AppPreferences.userLoggedIn = true
                         AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
-                }
+                    }
                 "painting" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "painting"
                         AppPreferences.userLoggedIn = true
                         AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
-                }
+                    }
                 "hardnessline" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "hardnessline"
@@ -67,14 +67,21 @@ class LoginFragment : Fragment() {
                         AppPreferences.userLoggedIn = true
                         AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
-                }
+                    }
                 "finaldpm" ->
                     if (tietPassword.text.toString() == tietUsername.text.toString()) {
                         AppPreferences.userWorkCenter = "finaldpm"
                         AppPreferences.userLoggedIn = true
                         AppPreferences.notFirstRun = true
                         findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
-                }
+                    }
+                "admin" ->
+                    if (tietPassword.text.toString() == tietUsername.text.toString()) {
+                        AppPreferences.userWorkCenter = ""
+                        AppPreferences.userLoggedIn = true
+                        AppPreferences.notFirstRun = true
+                        findNavController(root).navigate(R.id.action_nav_logout_to_nav_dashboard)
+                    }
             }
         }
         return root

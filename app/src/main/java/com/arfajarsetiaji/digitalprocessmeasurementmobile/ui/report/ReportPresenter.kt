@@ -41,6 +41,7 @@ class ReportPresenter(private val reportView: ReportView) {
                             "7" -> reportEntryItems?.retainAll { it?.type == "WP - Machining" }
                             "8" -> reportEntryItems?.retainAll { it?.type == "WP - NDT" }
                         }
+                        reportEntryItems?.sortByDescending { it?.no }
                         val reportEntryList: List<ReportEntryItem> = reportEntryItems as List<ReportEntryItem>
                         reportView.showReportEntryList(reportEntryList)
                         reportView.hideRefreshing()
