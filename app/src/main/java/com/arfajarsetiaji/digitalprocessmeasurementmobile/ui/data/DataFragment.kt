@@ -33,11 +33,7 @@ class DataFragment : Fragment(), DataView {
         srlData = root.findViewById(R.id.srl_data)
         rvData = root.findViewById(R.id.rv_data)
         rvData.layoutManager = LinearLayoutManager(act)
-        rvData.adapter =
-            DataEntryAdapter(
-                dataEntryItems,
-                act
-            )
+        rvData.adapter = DataEntryAdapter(dataEntryItems, act)
         srlData.onRefresh {
             if (!svData.isIconified){
                 GlobalScope.launch(Dispatchers.Main) { dataPresenter.queryAndShowDataEntryListFromServer(svData.query.toString()) }
@@ -58,7 +54,6 @@ class DataFragment : Fragment(), DataView {
                 GlobalScope.launch(Dispatchers.Main) { query?.let { dataPresenter.queryAndShowDataEntryListFromServer(it) } }
                 return false
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
                 GlobalScope.launch(Dispatchers.Main) { newText?.let { dataPresenter.queryAndShowDataEntryListFromServer(it) } }
                 return true

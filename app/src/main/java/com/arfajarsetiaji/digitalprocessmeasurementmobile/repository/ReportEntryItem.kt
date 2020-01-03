@@ -8,13 +8,12 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-data class ReportEntries(@SerializedName("Sheet1") val reportEntryItems: MutableList<ReportEntryItem?>?):
-    Parcelable
+data class ReportEntries(@SerializedName("report") val reportEntryItems: MutableList<ReportEntryItem?>?): Parcelable
 
 @Parcelize
 @Entity(tableName = "Data Entries")
 data class ReportEntryItem(
-    @SerializedName("month") @ColumnInfo(name = "month") val month: Int?,
+    @SerializedName("month") @ColumnInfo(name = "month") val month: String?,
     @SerializedName("rate") @ColumnInfo(name = "rate") val rate: String?,
     @SerializedName("index") @ColumnInfo(name = "index") val index: String?,
     @SerializedName("benefit") @ColumnInfo(name = "benefit") val benefit: String?,

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -14,13 +13,11 @@
 
         <TextView
             android:id="@+id/tv_content_month"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
             android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:maxLines="1" />
 
         <View
             android:id="@+id/divider_1"
@@ -31,11 +28,11 @@
 
         <TextView
             android:id="@+id/tv_content_rate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:maxLines="1" />
 
         <View
             android:id="@+id/divider_2"
@@ -46,11 +43,11 @@
 
         <TextView
             android:id="@+id/tv_content_index"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:maxLines="1" />
 
         <View
             android:id="@+id/divider_3"
@@ -61,18 +58,16 @@
 
         <TextView
             android:id="@+id/tv_content_benefit"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:maxLines="1" />
     </LinearLayout>
 
     <View
-        android:id="@+id/divider_0"
+        android:id="@+id/divider_bottom"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider" />
-
-
 </LinearLayout>

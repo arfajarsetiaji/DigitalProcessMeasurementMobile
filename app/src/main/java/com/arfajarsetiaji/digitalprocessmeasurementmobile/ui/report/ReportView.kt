@@ -5,5 +5,5 @@ import com.arfajarsetiaji.digitalprocessmeasurementmobile.repository.ReportEntry
 interface ReportView{
     fun showRefreshing()
     fun hideRefreshing()
-    fun showDataEntryList(reportEntryItems: List<ReportEntryItem>)
+    fun showReportEntryList(reportEntryItems: List<ReportEntryItem>)
 }

@@ -52,6 +52,7 @@
     <string name="hint_log_in">Log In</string>
 
     <string name="api_data_url">https://arfajarsetiaji.github.io/DigitalProcessMeasurementMobile/data_fpy_sqg.json</string>
+    <string name="api_report_url">https://arfajarsetiaji.github.io/DigitalProcessMeasurementMobile/report.json</string>
     <string name="label_search">Search</string>
     <string name="message_logout">You have logged out.</string>
 </resources>
