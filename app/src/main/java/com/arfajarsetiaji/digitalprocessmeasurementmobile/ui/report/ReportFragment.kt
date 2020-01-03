@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +22,7 @@ import org.jetbrains.anko.support.v4.onRefresh
 class ReportFragment : Fragment(), ReportView {
     private var reportEntryItems: MutableList<ReportEntryItem> = mutableListOf()
     private var reportPresenter: ReportPresenter = ReportPresenter(this)
+    private lateinit var spReport: Spinner
     private lateinit var srlReport: SwipeRefreshLayout
     private lateinit var rvReport : RecyclerView
 
@@ -30,10 +33,22 @@ class ReportFragment : Fragment(), ReportView {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_report, container, false)
+        spReport = root.findViewById(R.id.sp_report)
         srlReport = root.findViewById(R.id.srl_report)
         rvReport = root.findViewById(R.id.rv_report)
         rvReport.layoutManager = LinearLayoutManager(act)
         rvReport.adapter = ReportEntryAdapter(reportEntryItems, act)
+        spReport.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                when(position) {
+                    0 ->
+                }
+            }
+
+        }
         srlReport.onRefresh { GlobalScope.launch(Dispatchers.Main) { reportPresenter.getAndShowReportEntryListFromServer() } }
         if (reportEntryItems.isEmpty()){ GlobalScope.launch(Dispatchers.Main) { reportPresenter.getAndShowReportEntryListFromServer() } }
         return root

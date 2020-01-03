@@ -29,20 +29,18 @@
     <string name="label_remarks_fpy">Remarks FPY</string>
     <string name="content_empty_dash">-</string>
 
-    <string name="menu_report_benefit_fpy_sheetmetal">FPY - Sheet Metal</string>
-    <string name="menu_report_benefit_fpy_machining">FPY - Machining</string>
-    <string name="menu_report_benefit_fpy_ndt">FPY - NDT</string>
-    <string name="menu_report_benefit_pr_sheetmetal">PR - Sheet Metal</string>
-    <string name="menu_report_benefit_pr_machining">PR - Machining</string>
-    <string name="menu_report_benefit_pr_ndt">PR - NDT</string>
-    <string name="menu_report_benefit_wp_sheetmetal">WP - Sheet Metal</string>
-    <string name="menu_report_benefit_wp_machining">WP - Machining</string>
-    <string name="menu_report_benefit_wp_ndt">WP - NDT</string>
-
-    <string name="label_report_work_center">Work Center</string>
-    <string name="option_report_work_center_sheet_metal">Sheet Metal</string>
-    <string name="option_report_work_center_machining">Machining</string>
-    <string name="option_report_work_center_ndt">NDT</string>
+    <string name="prompt_menu">Benefit Report</string>
+    <string-array name="menu_benefit_report">
+        <item>FPY - Sheet Metal</item>
+        <item>FPY - Machining</item>
+        <item>FPY - NDT</item>
+        <item>PR - Sheet Metal</item>
+        <item>PR - Machining</item>
+        <item>PR - NDT</item>
+        <item>WP - Sheet Metal</item>
+        <item>WP - Machining</item>
+        <item>WP - NDT</item>
+    </string-array>
 
     <string name="label_report_month">Month</string>
     <string name="label_report_rate">Rate</string>
